@@ -8,7 +8,7 @@ The installer is a super powered jumpstart system that allows you to install ext
    
 # License   
 
-Licensed under [GPLV2](http://www.gnu.org/licenses/gpl-2.0.html)
+Licensed under [GPLV3](http://www.gnu.org/licenses/gpl-3.0.html)
 
 # Code Credits    
      
