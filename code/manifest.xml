@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- $Id: manifest.xml 397 2011-08-08 16:47:28Z christianhent $ -->
+<install type="component" version="1.5.0" method="upgrade">
+	<name>Forge</name>
+	<author>Ken Erickson</author>
+	<creationDate>Sept 2011</creationDate>
+	<copyright>Copyright (C) 2011 Ken Erickson. </copyright>
+	<license>GNU GPLv2</license>
+	<authorEmail>bookworm.productions@gmail.com</authorEmail>
+	<authorUrl>www.designbreakdown.com</authorUrl>
+	<version>0.1</version>
+	<description>A sample component, built with the main purpose to bring a bit of the nooku magic to light.</description>
+</install>
