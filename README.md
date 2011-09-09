@@ -20,18 +20,18 @@ Although messy at points Akeeba contains good examples of how to solve many of t
 Thanks allot Nicholas! 
 
 * Author: Nicholas K. Dionysopoulos
-* Copyright: Copyright (C) 2009-2010 Nicholas K. Dionysopoulos.
+* Copyright: Copyright (C) 2009-2011 Nicholas K. Dionysopoulos.
 * License: GPLV3
-* URL: http://www.dionysopoulos.me
+* URL: https://www.akeebabackup.com
 
 CodeIgniter
 ----------- 
 Some of the helper functions were borrowed from or re-written from code found in codeigniter.
 
 * Author: EllisLab
-* Copyright: Copyright (C) 2008 - 2010, EllisLab 
+* Copyright: Copyright (C) 2008 - 2011, EllisLab 
 * License: Other (GPL Compatible)
-* URL: http://codeigniter.com/    
+* URL: http://codeigniter.com/
 
 # The Inspiring Ideas and People. 
 
