@@ -1,0 +1,3 @@
+[submodule "code/administrator/components/com_forge/lib/forge"]
+	path = code/administrator/components/com_forge/lib/forge
+	url = git://github.com/bookworm/forge.git

@@ -4,46 +4,48 @@
 
 if(!defined('DS'))
   define('DS', DIRECTORY_SEPARATOR);   
-
+  
+define('_Forge', 1);
 define('FORGE_CONFIG_PATH', dirname(dirname(__FILE__)) . DS . 'config');     
 
 require_once dirname(__FILE__) . DS . 'jbootstrap.php';   
-
 require_once dirname(dirname(__FILE__)) . DS . 'lib' . DS . 'forge' . DS . 'forge.php';    
        
-if(count($argv) < 3 OR !in_array($arg[1], array('update', 'install', 'uninstall')))
+if(count($argv) < 3 OR !in_array($argv[1], array('update', 'install', 'uninstall')))
   echo "Incorrect number of arguments. Please read docs \n";
 
 $type = $argv[1];     
 $artifact_names = array_slice($argv, 2, count($argv) - 1);       
-                  
+
 switch($type)
 {
   case 'update':
-    foreach($artifacts as $artifact {
+    foreach($artifacts as $artifact) {
       $artifact->update = true;           
     }
     break;
        
   case 'uninstall':
-    foreach($artifacts as $artifact {
+    foreach($artifacts as $artifact) {
       $artifact->uninstall = true;           
     }   
     break;
 }  
+           
+echo FORGE_CONFIG_PATH.DS.'config.json';
+$config = file_get_contents(FORGE_CONFIG_PATH.DS.'config.json');
+$config = preg_replace( '/\s*(?!<\")\/\*[^\*]+\*\/(?!\")\s*/' , '' , $config);   
+$config = preg_replace('#/\*[^*]*\*+([^/*][^*]*\*+)*/#', '' , $config); 
+$config = json_decode($config);    
 
-$artifacts = 
-              
-$forge = new \forge\core\Forge($artifact_names);    
-  
-$source = array('public_key' => $forge->config->['public_key'], 'private_key' => $forge->config->['private_key'], 
-  'url' => $forge->config->['url'], 'port' => $forge->config->['port']);
+$source = array('public_key' => $config->public_key, 'private_key' => $config->private_key, 
+  'url' => $config->url, 'port' => $config->port);
 $sources[] = $source;        
-
 $fapi = new Forge_API(null, null, null, $sources);
-$artifacts = $fapi->getAllArtifacts($artifact_names);  
-
-$dig = new \forge\core\dig\Dig($artifacts);   
-$dig->run();
-if($dig->status->finished)    
-  die('Finished!');
+$artifacts = $fapi->getAllArtifacts($artifact_names);          
+# 
+# 
+# $dig = new \forge\core\dig\Dig($artifacts);   
+# $dig->run();
+# if($dig->status->finished)    
+#   die('Finished!');
