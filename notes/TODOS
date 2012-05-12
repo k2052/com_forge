@@ -1,0 +1,28 @@
+> decide on structure   
+> create new installation for testing
+> symlink 
+> install with sql query                 
+> hook up console
+> test console params dump
+> bootstrap forge lib       
+> load in config and pass to forge  
+> array slice get artifacts and arg type
+> wire up console commands to classes
+> sql for install
+> sql for uninstall    
+
+# Console Errors:
+  > error if args less than
+  > error if arg[1] not update, install or uninstall
+
+- run manual tests for:
+  - update
+  - uninstall
+  - install
+
+- joomla bootstrap 
+    
+# Future:
+  - views for saving settings    
+  - split up commands more elegantly using Arthur framework        
+  
