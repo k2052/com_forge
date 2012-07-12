@@ -12,7 +12,7 @@ require_once dirname(__FILE__) . DS . 'jbootstrap.php';
 require_once dirname(dirname(__FILE__)) . DS . 'lib' . DS . 'forge' . DS . 'forge.php';    
        
 if(count($argv) < 3 OR !in_array($argv[1], array('update', 'install', 'uninstall')))
-  echo "Incorrect number of arguments. Please read docs \n";
+  die("Incorrect number of arguments. Please read docs \n");
 
 $type = $argv[1];     
 $artifact_names = array_slice($argv, 2, count($argv) - 1);       
@@ -32,7 +32,6 @@ switch($type)
     break;
 }  
            
-echo FORGE_CONFIG_PATH.DS.'config.json';
 $config = file_get_contents(FORGE_CONFIG_PATH.DS.'config.json');
 $config = preg_replace( '/\s*(?!<\")\/\*[^\*]+\*\/(?!\")\s*/' , '' , $config);   
 $config = preg_replace('#/\*[^*]*\*+([^/*][^*]*\*+)*/#', '' , $config); 
@@ -42,10 +41,12 @@ $source = array('public_key' => $config->public_key, 'private_key' => $config->p
   'url' => $config->url, 'port' => $config->port);
 $sources[] = $source;        
 $fapi = new Forge_API(null, null, null, $sources);
-$artifacts = $fapi->getAllArtifacts($artifact_names);          
-# 
-# 
-# $dig = new \forge\core\dig\Dig($artifacts);   
-# $dig->run();
-# if($dig->status->finished)    
-#   die('Finished!');
+$artifacts = $fapi->getAllArtifacts(array('only' => implode(',', $artifact_names)));   
+
+if($artifacts == null)
+  die("Could not retrieve the artifact(s) from API. Check for typos \n");
+
+$dig = new \forge\core\Dig($artifacts);   
+$dig->run();
+if($dig->status->finished)    
+  die('Finished!');
