@@ -56,3 +56,8 @@ management systems and communities. I'd like to thank some of those people, proj
   those years ago. And by "all those years ago" I mean, four years ago. Oh how the web moves so fast.
 
 Thanks everyone! You inspire me and make me a better developer.
+
+## Support
+
+If you found this repo useful please consider supporting me on [Gittip](https://www.gittip.com/k2052) or sending me some
+bitcoin `1csGsaDCFLRPPqugYjX93PEzaStuqXVMu`
